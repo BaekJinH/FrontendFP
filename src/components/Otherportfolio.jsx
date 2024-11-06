@@ -12,7 +12,7 @@ function OtherSection() {
   const [typedText, setTypedText] = useState(''); // 타이핑 애니메이션 텍스트
 
   useEffect(() => {
-    fetch('/data/puborReact.json')
+    fetch(`${process.env.PUBLIC_URL}/data/puborReact.json`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
