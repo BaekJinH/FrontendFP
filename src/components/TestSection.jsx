@@ -18,7 +18,7 @@ function TestSection() {
   };
 
   useEffect(() => {
-    fetch(`data/bubbleData.json`)
+    fetch(`/data/bubbleData.json`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -36,7 +36,7 @@ function TestSection() {
   useEffect(() => {
     const handleMouse = e => {
       mouseX = e.pageX; // pageX로 절대적인 화면 위치값을 받아와서 사용합니다.
-      console.log('Mouse X:', mouseX); // 제대로 들어오는지 콘솔에서 확인
+      // console.log('Mouse X:', mouseX); // 제대로 들어오는지 콘솔에서 확인
     };
 
     window.addEventListener('mousemove', handleMouse);
