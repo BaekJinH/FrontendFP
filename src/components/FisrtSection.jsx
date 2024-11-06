@@ -89,7 +89,7 @@ function FirstSection() {
       <section className="profile-section" id='FirstSection'>
         <div className="image-container">
           <div className="image-wrapper">
-            <img src="./image/FirstView.jpg" alt="Example" className="responsive-image" />
+            <img src="image/FirstView.jpg" alt="Example" className="responsive-image" />
           </div>
           <div className="text-box">
             <ul>
