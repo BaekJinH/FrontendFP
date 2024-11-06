@@ -1,0 +1,23 @@
+.section-navigation {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transform-origin: center;
+    transition:transform .3s;
+    &.active {
+      background-color: #ff5722;
+      transform:scale(2);
+    }
+  }
+}

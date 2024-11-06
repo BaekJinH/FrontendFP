@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100">
+  <filter id="wave-effect">
+    <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="15"/>
+  </filter>
+  <text x="50%" y="50%" text-anchor="middle" dy=".35em" filter="url(#wave-effect)" font-size="60" font-weight="bold" fill="black">
+    Portfolio
+  </text>
+</svg>

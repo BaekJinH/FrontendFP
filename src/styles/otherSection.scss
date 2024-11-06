@@ -1,0 +1,145 @@
+.publish_react-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  .section-inner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:50px;
+    height: 100%;
+    width: calc(100% - 10vw);
+    height: calc(100% - 10vw);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    .view-box-container {
+      position: relative;
+      width: 300px;
+      height: 500px;
+      perspective: 1000px; // 원근감을 위해 사용
+      flex:1;
+      aspect-ratio: 2/1;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+    }
+
+    .view-box {
+      position: absolute;
+      width: calc(100% - 30%);
+      height: calc(100% - 30%);
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 1s ease-in-out, opacity 0.8s ease-in-out;
+      transform-origin: center;
+      z-index: 1;
+
+
+      > a{ 
+        width: 100%;
+        height: 100%;
+      }
+
+      // 기본 상태 (카드 보이지 않음)
+      opacity: 0;
+      transform: translateY(0) scale(0.8);
+
+      // 활성화된 카드에 대한 스타일
+      &.active {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg) scale(1);
+        transition: transform .7s ease-out, opacity 0.5s ease-in;
+        z-index: 10;
+      }
+
+      // 다음 카드로 넘길 때 대각선 방향으로 회전하면서 뒤로 이동
+      &.move-out-next {
+        opacity: .3;
+        transform: rotate(-20deg) translateY(-50%) translateX(-30%) translateZ(-200px) scale(0.6);
+        z-index: 5; // 맨 뒤로 이동
+      }
+      &.return-card {
+        opacity: 1;
+        transform: rotate(0deg) translateY(0%) translateX(0%) translateZ(0px) scale(0.6);
+        z-index: 5; // 맨 뒤로 이동
+      }
+
+
+      // 다음으로 활성화될 카드
+      &.next-active {
+        opacity: 1;
+        transform: rotate(0deg) translateY(0) translateX(0) translateZ(0) scale(1);
+        transition: transform .5s ease-in-out, opacity 0.8s ease-in;
+        z-index: 15; // 맨 앞에 보이도록 설정
+      }
+
+      .content {
+        padding: 20px;
+        text-align: center;
+
+        h3 {
+          margin-bottom: 10px;
+          font-size: 1.5rem;
+        }
+
+        p {
+          font-size: 1rem;
+          line-height: 1.4;
+        }
+      }
+    }
+
+    .navigation-buttons {
+      display: flex;
+      justify-content: center;
+      flex:1;
+
+      > ul {
+        width: 100%;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        
+        li {
+          text-align: center;
+          padding: 10px;
+          cursor: pointer;
+          min-height: 50px;
+
+          a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: #fff;
+            font-weight: 500;
+            font-size: 20px;
+          }
+        }
+      }
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

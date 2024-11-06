@@ -1,0 +1,125 @@
+.first-section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .profile-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    .image-container {
+      position: relative;
+      width: calc(100% - 10vw);
+      height: calc(100% - 10vw);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+
+      .image-wrapper {
+        position: relative;
+        display: inline-block;
+        flex: 1;
+        display: flex;
+        ;
+        align-items: center;
+        justify-content: center;
+
+        .responsive-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 15px;
+          filter: grayscale(0.2);
+          width: 306px;
+          height: 393px;
+        }
+
+        .hover-area {
+          position: absolute;
+          width: 10%;
+          height: 10%;
+          cursor: pointer;
+          transform: translate(-50%, -50%);
+          transition: background-color 0.3s ease;
+
+          // 호버 텍스트를 포함한 영역
+          .hover-text {
+            position: absolute;
+            top: -30px; // 텍스트가 영역 위에 나타나도록 설정
+            left: 50%;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            transform: translate(-50%, -100%);
+            white-space: nowrap;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+
+            // 마우스가 영역에 들어갈 때 텍스트 표시
+            .hover-area:hover & {
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      .text-box {
+        flex: 1;
+
+        >ul {
+          gap:30px;
+          display: flex;
+          flex-flow: wrap;
+          
+          li {
+            color: #fff;
+            flex:1 100%;
+            font-size: 20px;
+
+            &.hashtag {
+              display: flex;
+              gap: 20px;
+              font-size: 20px
+            }
+
+            .resume-link {
+              width: 100%;
+              color: #ffffff;
+              text-decoration: none;
+              transition: color 0.3s ease;
+              position: relative;
+            }
+            
+            .resume-link::after {
+              content: 'https://likeable-palladium-d6b.notion.site/115296ec05af800e81e4c435054dd918?pvs=4';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              color: #ffffff;
+              opacity: 0;
+              transition: opacity 0.3s ease;
+            }
+            
+            .resume-link:hover::after {
+              opacity: 1;
+            }
+            
+            .resume-link:hover {
+              color: transparent; /* 기존 텍스트 숨기기 */
+            }
+          }
+        }
+      }
+    }
+  }
+}
