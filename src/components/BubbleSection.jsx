@@ -13,7 +13,7 @@ function BubbleSection() {
   const typingIntervalRef = useRef(null); // 타이핑 애니메이션 인터벌 참조
 
   useEffect(() => {
-    fetch(`${window.location.origin}/FrontendFP/data/bubbleData.json`)
+    fetch(`./data/bubbleData.json`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
