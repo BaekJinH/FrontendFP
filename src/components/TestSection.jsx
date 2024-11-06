@@ -18,7 +18,7 @@ function TestSection() {
   };
 
   useEffect(() => {
-    fetch(`${process.env.PUBLIC_URL}/data/bubbleData.json`)
+    fetch(`${window.location.origin}/FrontendFP/data/bubbleData.json`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
