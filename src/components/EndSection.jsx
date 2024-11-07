@@ -117,7 +117,8 @@ function EndSection() {
     }, 5400);
 
     try {
-      const response = await fetch('http://localhost:3001/api/feedback', {
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+      const response = await fetch(`${apiUrl}/api/feedback`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -133,6 +134,7 @@ function EndSection() {
       }
     } catch (error) {
       setMessage('서버 오류가 발생했습니다.');
+      console.error(process.env.REACT_APP_API_URL)
     }
   };
 
