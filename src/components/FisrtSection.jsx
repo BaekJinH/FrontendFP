@@ -65,7 +65,7 @@ function FirstSection() {
     if (visibleIndex === 3) {
       const texts = [
         '새로운 것을 만드는, 화려한 페이지를 만드는, 최적화에 관심이 있는 개발자 입니다.',
-        '이력서 링크'
+        '이력서 링크입니다.'
       ];
 
       texts.forEach((text, i) => {
@@ -94,7 +94,7 @@ function FirstSection() {
           <div className="text-box">
             <ul>
               <li className="hashtag">
-                {['퍼블리셔', '신입 프론트엔드', '예시2', '예시3'].map((text, index) => (
+                {['퍼블리셔', '신입 프론트엔드', '인터렉티브 효과', '개발자'].map((text, index) => (
                   <p
                     key={index}
                     style={{

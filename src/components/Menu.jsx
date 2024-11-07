@@ -23,7 +23,11 @@ function Menu() {
     setBubbleVisible(true);
   };
 
-  const handleCircleMenuClick = () => {
+  const handleCircleMenuClick = (e) => {
+    e.stopPropagation();
+  };
+
+  const handleMenuContainerClick = () => {
     setMenuVisible(false);
     setBubbleVisible(false);
   };
@@ -32,7 +36,7 @@ function Menu() {
     <div className="menu">
       <a
         className={`vw-menu ${menuVisible ? 'hidden' : 'visible'}`}
-        href="#"
+        href="#none"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={handleVwMenuClick}
@@ -58,35 +62,37 @@ function Menu() {
       </a>
 
       <div
-        className={`circle-menu ${menuVisible ? 'on visible' : ''}`}
-        onClick={handleCircleMenuClick}
+        className={`menu-container ${menuVisible ? 'on visible' : ''}`}
+        onClick={handleMenuContainerClick}
       >
-        <ul className='bb-menu'>
-          <li>
-            test 글자 짱 큰 거
-          </li>
-          <li>
-            test 글자 짱 큰 거
-          </li>
-          <li>
-            test 글자 짱 큰 거
-          </li>
-        </ul>
-      </div>
-
-      {bubbleVisible && (
-        <div className="bubble pop">
-          <div className="bubble__main"></div>
-          <div className="bubble__drop bubble__drop--1"></div>
-          <div className="bubble__drop bubble__drop--2"></div>
-          <div className="bubble__drop bubble__drop--3"></div>
-          <div className="bubble__drop bubble__drop--4"></div>
-          <div className="bubble__drop bubble__drop--5"></div>
-          <div className="bubble__drop bubble__drop--6"></div>
-          <div className="bubble__drop bubble__drop--7"></div>
-          <div className="bubble__drop bubble__drop--8"></div>
+        <div
+          className={`inner-menu`}
+          onClick={handleCircleMenuClick}
+        >
+          <ul className='bb-menu'>
+            <li>
+              <a href="mailto:wlsgur_bloom@naver.com">wlsgur_bloom@naver.com</a>
+            </li>
+            <li>
+              <a href="tel:010-8681-6741">010-8681-6741</a>
+            </li>
+          </ul>
         </div>
-      )}
+  
+        {bubbleVisible && (
+          <div className="circle_menu pop" onClick={handleCircleMenuClick}>
+            <div className="circle_menu__main"></div>
+            <div className="circle_menu__drop circle_menu__drop--1"></div>
+            <div className="circle_menu__drop circle_menu__drop--2"></div>
+            <div className="circle_menu__drop circle_menu__drop--3"></div>
+            <div className="circle_menu__drop circle_menu__drop--4"></div>
+            <div className="circle_menu__drop circle_menu__drop--5"></div>
+            <div className="circle_menu__drop circle_menu__drop--6"></div>
+            <div className="circle_menu__drop circle_menu__drop--7"></div>
+            <div className="circle_menu__drop circle_menu__drop--8"></div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

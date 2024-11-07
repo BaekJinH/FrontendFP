@@ -13,6 +13,7 @@ import EndSection from './components/EndSection';
 import Menu from './components/Menu';
 
 import TestSection from './components/TestSection.jsx';
+import TestSection2 from './components/TestSection_2.jsx';
 
 function App() {
   const [isLandingVisible, setIsLandingVisible] = useState(true);
@@ -36,7 +37,8 @@ function App() {
       ) : (
         <>
           <SectionWrapper endLanding={endLanding}>
-            <TestSection id="TestSection" />
+            <TestSection2 id="TestSection2" />
+            {/* <TestSection id="TestSection" /> */}
             <FirstSection id="FirstSection" />
             <BubbleSection id="BubbleSection" />
             <Otherportfolio id="Otherportfolio" />

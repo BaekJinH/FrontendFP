@@ -1,5 +1,3 @@
-// EndSection.js
-
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import '../styles/EndSection.scss';
 
@@ -9,13 +7,15 @@ function EndSection() {
   const [showSecondMessage, setShowSecondMessage] = useState(false);
   const [isAnimationRunning, setIsAnimationRunning] = useState(false);
   const [isAnimationComplete, setIsAnimationComplete] = useState(false);
+  const [feedback, setFeedback] = useState('');
+  const [message, setMessage] = useState('');
   const endSectionRef = useRef(null);
   const timeouts = useRef([]);
   const [currentLinkIndex, setCurrentLinkIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const links = useRef([]);
 
-  const sectionNames = ['1번 페이지', '2번 페이지', '3번 페이지', '4번 페이지'];
+  const sectionNames = ['', '', '', ''];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -65,7 +65,7 @@ function EndSection() {
       setShowFirstMessage(false);
       setShowEraseLine(false);
       setShowSecondMessage(true);
-    }, 5000);
+    }, 7000);
 
     const thirdTimeout = setTimeout(() => {
       setIsAnimationRunning(false);
@@ -108,12 +108,40 @@ function EndSection() {
     setIsHovering(false);
   }, []);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const button = e.target.querySelector('button');
+    button.classList.add('fly');
+    setTimeout(() => {
+      button.classList.remove('fly');
+    }, 5400);
+
+    try {
+      const response = await fetch('http://localhost:3001/api/feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ feedback }),
+      });
+
+      if (response.ok) {
+        setMessage('피드백이 성공적으로 저장되었습니다.');
+        setFeedback('');
+      } else {
+        setMessage('피드백 저장에 실패했습니다.');
+      }
+    } catch (error) {
+      setMessage('서버 오류가 발생했습니다.');
+    }
+  };
+
   return (
     <section className="end-page" ref={endSectionRef} id='EndSection'>
       <ul className="person-info">
         <li className="endpage-navi">
           <div className="circle-nav">
-            {['#FirstSection', '#BubbleSection', '#Otherportfolio', '#EndSection'].map((sectionId, index) => (
+            {['첫 페이지', '소개 페이지', '코드 페이지', '퍼블리셔 작업'].map((sectionId, index) => (
               <a
                 key={sectionId}
                 href={sectionId}
@@ -127,10 +155,10 @@ function EndSection() {
                   {sectionId.replace('#', '')}
                   <div className="outer-circle">
                     <svg width="100%" height="100%" viewBox="0 0 100 100">
-                      <circle cx="50" cy="50" r="40" fill="#fff" />
+                      {/* <circle cx="50" cy="50" r="20" fill="#fff" />
                       <text x="50" y="55" textAnchor="middle" fill="#000" fontSize="10" fontWeight="bold">
                         {sectionNames[index]}
-                      </text>
+                      </text> */}
                     </svg>
                   </div>
                 </div>
@@ -138,21 +166,28 @@ function EndSection() {
             ))}
           </div>
         </li>
-        <li>
-          <a href="mailto:wlsgur_bloom@naver.com">wlsgur_bloom@naver.com</a>
-        </li>
-        <li>
-          <a href="tel:010-8681-6741">010-8681-6741</a>
-        </li>
       </ul>
       <div className="end-messages">
         {showFirstMessage && (
           <div className="message-container">
             <h1 className="message">이상입니다.</h1>
             {showEraseLine && <div className="erase-line"></div>}
+            {showEraseLine && <div className="white-bar"></div>}
           </div>
         )}
         {showSecondMessage && <h1 className="message">감사합니다.</h1>}
+      </div>
+      <div className="feedback-container">
+        <form onSubmit={handleSubmit}>
+          <textarea
+            value={feedback}
+            onChange={(e) => setFeedback(e.target.value)}
+            placeholder="피드백을 입력해주세요!!"
+            required
+          />
+          <button className="mail-btn" type="submit">제출</button>
+        </form>
+        {message && <p>{message}</p>}
       </div>
     </section>
   );

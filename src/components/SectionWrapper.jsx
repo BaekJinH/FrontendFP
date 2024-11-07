@@ -43,6 +43,7 @@ function SectionWrapper({ children, endLanding }) {
         activeIndex={activeIndex}
         onDotClick={setActiveIndex}
       />
+      <div className="mouse"></div>
     </div>
   );
 }
