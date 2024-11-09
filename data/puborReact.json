@@ -1,8 +1,8 @@
 [
-  { "id": 1, "content": "장애인 고용 공단 리뉴얼", "link": "#link1", "text" : "웹 퍼블리셔로서 장애인 고용 공단 홈페이지를 리뉴얼 할 떄 작업한 페이지 코드와 페이지 입니다." },
-  { "id": 2, "content": "코드 미리보기 2", "link": "https://www.yongin.go.kr/intro/index.jsp", "text" : "웹 퍼블리셔로서 용인 시청 홈페이지를 작업하였습니다. ." },
-  { "id": 3, "content": "코드 미리보기 3", "link": "#link3", "text" : "웹 퍼블리셔로서 ." },
-  { "id": 4, "content": "코드 미리보기 4", "link": "#link4", "text" : "웹 퍼블리셔로서 ." },
-  { "id": 5, "content": "코드 미리보기 5", "link": "#link5", "text" : "웹 퍼블리셔로서 ." },
-  { "id": 6, "content": "코드 미리보기 6", "link": "#link6", "text" : "웹 퍼블리셔로서 ." }
+  { "id": 1, "image" : "image/pub_image_1.png", "content": "국가 교육 위원회를 리뉴얼한 것입니다", "link": "https://www.ne.go.kr/new/index.do", "text" : "웹 퍼블리셔로서 국가 교육 위원회를 리뉴얼 할 떄 작업한 페이지 코드와 페이지 입니다." },
+  { "id": 2, "image" : "image/pub_image_2.png", "content": "용인 시청 홈페이지를 리뉴얼 및 유지보수 한 것입니다.", "link": "https://www.yongin.go.kr/intro/index.jsp", "text" : "웹 퍼블리셔로서 용인 시청 홈페이지를 작업하였습니다." },
+  { "id": 3, "image" : "image/pub_image_3.png", "content": "경찰청 홈페이지 리뉴얼 및 유지보수 입니다.", "link": "https://www.police.go.kr/index.do", "text" : "웹 퍼블리셔로서 경찰청을 리뉴얼 하였습니다." },
+  { "id": 4, "image" : "image/pub_image_4.png", "content": "성남 시청 리뉴얼 작업을 하였습니다.", "link": "https://www.seongnam.go.kr/main.do", "text" : "웹 퍼블리셔로서 온라인 신청과 같이 성남 시청 페이지를 전체적으로 리뉴얼 작업했습니다." },
+  { "id": 5, "image" : "image/pub_image_5.png", "content": "성남 시청 온라인 신청 페이지를 작업했습니다.", "link": "https://www.seongnam.go.kr/apply", "text" : "웹 퍼블리셔로서 새로 작업한 온라인 신청 페이지 입니다." },
+  { "id": 6, "image" : "image/pub_image_6.png", "content": "고양 시청 리뉴얼 및 유지보수 입니다.", "link": "https://www.goyang.go.kr/www/index.do", "text" : "웹 퍼블리셔로서 고양 시청을 리뉴얼 하였습니다. 주로 유지보수를 맡았지만 리뉴얼 페이지도 하였습니다." }
 ]
