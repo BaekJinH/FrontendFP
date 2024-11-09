@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import '../styles/testSection2.scss';
+import '../styles/Spaceword.scss';
 
-const SpaceInvaders = () => {
+const SpaceWord = () => {
   const wordRef = useRef(null);
   let time = 0;
   let mouseX = window.innerWidth * 0.75;
@@ -91,6 +91,13 @@ const SpaceInvaders = () => {
 
   return (
     <div className='section'>
+      <div className='container'>
+        <div className='planet'>
+          {Array.from({ length: 200 }).map((_, index) => (
+            <div key={index} className='face'></div>
+          ))}
+        </div>
+      </div>
       <div
         className="word"
         ref={wordRef}
@@ -107,4 +114,4 @@ const SpaceInvaders = () => {
   );
 };
 
-export default SpaceInvaders;
+export default SpaceWord;

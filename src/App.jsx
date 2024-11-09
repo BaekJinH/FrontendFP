@@ -10,10 +10,12 @@ import SectionWrapper from './components/SectionWrapper';
 import BubbleSection from './components/BubbleSection';
 import Otherportfolio from './components/Otherportfolio';
 import EndSection from './components/EndSection';
-import Menu from './components/Menu';
+// import Menu from './components/Menu';
+import Spaceword from './components/Spaceword.jsx';
+import VanillaSection from './components/VanillaSection';
+import MenuSec from './components/Menu_sec';
 
-import TestSection from './components/TestSection.jsx';
-import TestSection2 from './components/TestSection_2.jsx';
+// import TestSection from './components/TestSection.jsx';
 
 function App() {
   const [isLandingVisible, setIsLandingVisible] = useState(true);
@@ -37,14 +39,16 @@ function App() {
       ) : (
         <>
           <SectionWrapper endLanding={endLanding}>
-            <TestSection2 id="TestSection2" />
+            <Spaceword id="Spaceword" />
             {/* <TestSection id="TestSection" /> */}
             <FirstSection id="FirstSection" />
             <BubbleSection id="BubbleSection" />
             <Otherportfolio id="Otherportfolio" />
+            <VanillaSection id="VanillaSection" />
             <EndSection id="EndSection" />
           </SectionWrapper>
-          <Menu />
+          {/* <Menu /> */}
+          <MenuSec />
         </>
       )}
     </div>

@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { gsap } from 'gsap';
 import '../styles/menu.scss';
 
 function Menu() {
@@ -6,16 +7,14 @@ function Menu() {
   const [menuVisible, setMenuVisible] = useState(false);
   const [bubbleVisible, setBubbleVisible] = useState(false);
 
-  const handleMouseEnter = () => {
-    if (dotRef.current) {
-      dotRef.current.style.animation = 'none';
-    }
+  const handleMouseEnter = (e) => {
+    const target = e.currentTarget.querySelector('.bg');
+    gsap.fromTo(target, { x: '-112%' }, { x: '-12%', duration: 0.65, ease: 'power3.out' });
   };
 
-  const handleMouseLeave = () => {
-    if (dotRef.current) {
-      dotRef.current.style.animation = 'pulse 1.5s ease-in-out infinite';
-    }
+  const handleMouseLeave = (e) => {
+    const target = e.currentTarget.querySelector('.bg');
+    gsap.to(target, { x: '100%', duration: 0.65, ease: 'power3.out' });
   };
 
   const handleVwMenuClick = () => {
@@ -71,14 +70,20 @@ function Menu() {
         >
           <ul className='bb-menu'>
             <li>
-              <a href="mailto:wlsgur_bloom@naver.com">wlsgur_bloom@naver.com</a>
+              <a href="mailto:wlsgur_bloom@naver.com" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                <div className="bg"></div>
+                wlsgur_bloom@naver.com
+              </a>
             </li>
             <li>
-              <a href="tel:010-8681-6741">010-8681-6741</a>
+              <a href="tel:010-8681-6741" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                <div className="bg"></div>
+                010-8681-6741
+              </a>
             </li>
           </ul>
         </div>
-  
+
         {bubbleVisible && (
           <div className="circle_menu pop" onClick={handleCircleMenuClick}>
             <div className="circle_menu__main"></div>

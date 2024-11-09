@@ -124,34 +124,28 @@
               font-size:min(2vw, 30px);
               mix-blend-mode: difference;
               a {
+                padding:0 10px;
                 position: relative;
+                display: inline-block;
+                overflow: hidden;
+                color: #000;
+                text-decoration: none;
 
-                &:after { 
+                &:after {
                   content: '';
-                  height: 4px;
-                  border-radius: 50%;
-                  background-color: #000;
                   position: absolute;
-                  top: 100%;
-                  left:0;
+                  width: 115%;
+                  height: 100%;
+                  top: 0;
+                  left: -105%;
+                  background-color: #c8e8ff;
+                  transform: skew(-10deg);
+                  transition: left 0.35s ease-out;
+                  z-index: -1;
                 }
                 &:hover {
                   &:after {
-                    animation: range .5s ease-in-out forwards;
-                  }
-                }
-                @keyframes range {
-                  0% {
-                    width: 4px;
-                    border-radius: 50%;
-                  }
-                  10% {
-                    border-radius: 5px;
-
-                  }
-                  100% {
-                    width: 100%;
-                    border-radius: 5px;
+                    left: 0;
                   }
                 }
               }

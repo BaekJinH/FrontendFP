@@ -63,7 +63,7 @@ function OtherSection() {
         setTypedText((prev) => prev + fullText[currentIndex]);
         currentIndex += 1;
         if (currentIndex === fullText.length) clearInterval(typingTimeout);
-      }, 50); // 타이핑 속도 조절 (50ms)
+      }, 20); 
     }
 
     return () => clearInterval(typingTimeout); // cleanup
@@ -82,7 +82,10 @@ function OtherSection() {
             >
               <a href={li.link} target="_blank" rel="noopener noreferrer">
                 <div className="content">
-                  <h3>{li.title}</h3>
+                  <img 
+                    src={li.image}
+                    alt={li.content}
+                  />
                   <p>{li.content}</p>
                 </div>
               </a>
@@ -108,6 +111,9 @@ function OtherSection() {
               </li>
             ))}
           </ul>
+        </div>
+        <div className="comment">
+          <p>보고계신 컴포넌트는 웹 퍼블리셔로 작업한 페이지들 입니다. 부족한 공간에 담지 못한 수십개의 페이지들을 더 작업하였습니다.</p>
         </div>
       </section>
     </section>

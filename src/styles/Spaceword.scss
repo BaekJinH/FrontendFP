@@ -1,0 +1,104 @@
+@use 'sass:math';
+
+.section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.word {
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+  font-size: 24px;
+  transform:translateX(-30px);
+}
+
+.center_planet {
+  background: radial-gradient(circle at 40% 20%, #fcfcfc 0%, #ddd 10%, #333 50%, black 70%);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-40%, -35%);
+  filter: blur(0.5px);
+}
+
+.word span {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.container {
+  position: relative;
+}
+
+.planet {
+  width: 40px;
+  margin: 0 auto;
+  animation: rotateround 10s linear infinite;
+  transition: transform 200ms linear;
+  transform-style: preserve-3d;
+  transform-origin: center;
+}
+
+.face {
+  width: 10px;
+  height: 10px;
+  border: 0px solid black;
+  background: #fff;
+  opacity: 0.6;
+  border-radius: 50%;
+  position: absolute;
+  transform: translateZ(80px);
+  margin-top: 0px;
+  animation: big 30s linear infinite;
+}
+
+$panels: 5;
+$rows: 20;
+
+$h: 0;
+$hStep: math.div(360, $panels * $rows);
+
+@for $r from 0 to $rows {
+  @for $i from 0 to $panels {
+    $x: math.div($r * 360deg, $rows);
+    $y: math.div($i * 180deg, $panels);
+    
+    $count: $r * $panels + $i;
+    
+    .face:nth-child(#{$count}) {
+      transform: rotateY($y) rotateX($x) translateZ(80px);
+      animation: big-#{$count} 30s linear infinite;
+    }
+    
+    @keyframes big-#{$count} {
+      0% {
+        transform: rotateY($y + 0deg) rotateX($x + 0deg) translateZ(80px);
+      }
+      50% {
+        transform: rotateY($y + 0deg) rotateX($x + 0deg) translateZ(80px);
+      }
+      100% {
+        transform: rotateY($y + 0deg) rotateX($x + 0deg) translateZ(80px);
+      }
+    }
+  }
+}
+
+@keyframes rotateround {
+  0% {
+    transform: rotateX(0deg) rotateY(20deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(380deg);
+  }
+}

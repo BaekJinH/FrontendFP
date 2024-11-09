@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Cursor from './Cursor';
 import SectionNavigation from './SectionNavigation';
 import '../styles/sectionWrapper.scss';
 
@@ -27,7 +28,8 @@ function SectionWrapper({ children, endLanding }) {
   };
 
   return (
-    <div className={`section-wrapper`} onWheel={handleScroll}>
+    <div className="section-wrapper" onWheel={handleScroll}>
+      <Cursor />
       <div
         className={`sections ${isSectionVisible ? "view-section" : ""}`}
         style={{ transform: `translateY(-${activeIndex * 100}vh)` }}

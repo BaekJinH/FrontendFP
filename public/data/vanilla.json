@@ -1,0 +1,5 @@
+[
+  { "id": 1, "image" : "image/vanilla_code_1.png", "built":"HTML, CSS, JavaScript", "comment":"Vanilla JS를 이용해 구현한 개발자 도구를 막는 코드입니다. <br> 이 코드는 개인 프로젝트를 만들 때 사용했으며 티스토리 블로그의 개발자 도구가 사용되지 않는 것에서 영감을 받았습니다." },
+  { "id": 2, "image" : "image/vanilla_code_2_1.png", "built":"HTML, CSS, JavaScript", "comment":"Vanilla JS를 이용해 구현한 개발자 도구를 막는 코드입니다." },
+  { "id": 3, "image" : "image/vanilla_code_3.png", "built":"HTML(canvas), CSS, JavaScript", "comment":"Vanilla JS를 이용해 구현한." }
+]
