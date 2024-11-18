@@ -71,7 +71,11 @@
         border: 1px solid #fff;
         border-radius: 5px;
         padding:20px;
+
         
+        li ~ li {
+          margin-top: 10px;
+        }
         li {
           display: flex;
           align-items: center;
@@ -79,9 +83,6 @@
           position: relative;
           color:#111;
 
-          & ~ li {
-            margin-top:10px;
-          }
           > p{
             
             &.completed{
