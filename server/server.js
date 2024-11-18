@@ -2,12 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
-const cors = require('cors'); // CORS 추가
+const cors = require('cors');
+const WebSocket = require('ws'); // WebSocket 추가
 
 const app = express();
 const PORT = 3001;
 
-app.use(cors()); // CORS 미들웨어 사용
+app.use(cors());
 app.use(bodyParser.json());
 
 app.post('/api/feedback', (req, res) => {
@@ -32,5 +33,28 @@ app.post('/api/feedback', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`HTTP 서버가 http://localhost:${PORT}에서 실행 중입니다.`);
 });
+
+// WebSocket 서버 설정
+const wss = new WebSocket.Server({ port: 8080 });
+
+wss.on('connection', (ws) => {
+  console.log('클라이언트가 연결되었습니다.');
+
+  ws.on('message', (message) => {
+    console.log(`받은 메시지: ${message}`);
+    // 모든 클라이언트에게 메시지 브로드캐스트
+    wss.clients.forEach((client) => {
+      if (client.readyState === WebSocket.OPEN) {
+        client.send(message);
+      }
+    });
+  });
+
+  ws.on('close', () => {
+    console.log('클라이언트 연결이 닫혔습니다.');
+  });
+});
+
+console.log('WebSocket 서버가 포트 8080에서 실행 중입니다.');

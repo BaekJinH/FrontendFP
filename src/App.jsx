@@ -1,4 +1,3 @@
-// App.js
 import React, { useState, useEffect } from 'react';
 import "./styles/setting/fonts.scss";
 import "./styles/setting/var.scss";
@@ -10,12 +9,13 @@ import SectionWrapper from './components/SectionWrapper';
 import BubbleSection from './components/BubbleSection';
 import Otherportfolio from './components/Otherportfolio';
 import EndSection from './components/EndSection';
-// import Menu from './components/Menu';
 import Spaceword from './components/Spaceword.jsx';
 import VanillaSection from './components/VanillaSection';
 import MenuSec from './components/Menu_sec';
-
-// import TestSection from './components/TestSection.jsx';
+import Board from './components/Board';
+import Dashboard from './components/Dashboard';
+import ChatTodoApp from './components/ChatTodoApp';
+import MainRowWheel from './components/MainRowWheel';
 
 function App() {
   const [isLandingVisible, setIsLandingVisible] = useState(true);
@@ -24,6 +24,7 @@ function App() {
   const handleLandingComplete = () => {
     setEndLanding(true);
   };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLandingVisible(false);
@@ -40,14 +41,13 @@ function App() {
         <>
           <SectionWrapper endLanding={endLanding}>
             <Spaceword id="Spaceword" />
-            {/* <TestSection id="TestSection" /> */}
             <FirstSection id="FirstSection" />
             <BubbleSection id="BubbleSection" />
+            <MainRowWheel id="MainRowWheel" />
             <Otherportfolio id="Otherportfolio" />
             <VanillaSection id="VanillaSection" />
             <EndSection id="EndSection" />
           </SectionWrapper>
-          {/* <Menu /> */}
           <MenuSec />
         </>
       )}

@@ -1,0 +1,23 @@
+#Dashboard {
+  position: relative;
+  overflow: hidden;
+
+  .dashboard-inner {
+    position: relative;
+    display: flex;
+    flex-flow:column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    height: 100%;
+    width: calc(100% - 10vw);
+    height: calc(100% - 10vw);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    > h2 {
+      color:#fff;
+      font-size:24px;
+    }
+  }
+}

@@ -12,6 +12,7 @@ function BubbleSection() {
   const timeoutsRef = useRef([]);
   const textIndexRef = useRef(0); // 타이핑 애니메이션 글자 인덱스 관리
   const typingIntervalRef = useRef(null); // 타이핑 애니메이션 인터벌 참조
+  const [isBlur, setIsBlur] = useState(false); // 이너 버블 클릭 시 뒷 배경 아예 흐리게
 
   useEffect(() => {
     fetch('data/bubbleData.json')
@@ -29,6 +30,10 @@ function BubbleSection() {
         console.error('Error fetching the bubble data:', error);
       });
   }, []);
+
+  const innerBubbleEvent = () => {
+    setIsBlur(true);
+  }
 
   const resetBubbles = () => {
     if (!sectionInnerRef.current) return;
@@ -281,7 +286,7 @@ function BubbleSection() {
             onClick={() => burstBubble(index)}
           >
             <img 
-              className='bubble-image-background'
+              className={`bubble-image-background ${isBlur ? 'blur' : ''}`}
               src={bubble.image}
               alt={bubble.content}
             />
@@ -290,6 +295,7 @@ function BubbleSection() {
                 className="bubble-image"
                 src={bubble.image}
                 alt={bubble.content}
+                onClick={innerBubbleEvent}
               />
             </div>
             <div className="preview">{bubble.content}</div>

@@ -1,0 +1,40 @@
+.react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
+  display: none;
+}
+.react-horizontal-scrolling-menu--scroll-container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  display: flex;
+  align-items: center;
+}
+.react-horizontal-scrolling-menu--item  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.scroll-container {
+  display: flex;
+  width: 100vw;
+  overflow-x: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.main-app {
+  overflow: hidden;
+}
+
+.scroll-item {
+  display: inline-block;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+#ChatTodoApp, #Dashboard, #Board {
+  display: inline-block;
+    width: calc(100vw - 10px);
+    height: calc(100vh - 10px);
+    box-sizing: border-box;
+}
