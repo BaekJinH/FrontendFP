@@ -11,6 +11,9 @@ const ChatTodoApp = React.forwardRef((props, ref) => {
   const [newTodo, setNewTodo] = useState('');
   const [nickname, setNickname] = useState('');
   const socketRef = useRef(null);
+  const socketUrl = process.env.NODE_ENV === 'production'
+  ? 'wss://baekjinh.github.io/FrontendFP:8080'
+  : 'ws://localhost:8080';
 
   useEffect(() => {
     const randomNickname = `User${Math.floor(Math.random() * 1000)}`;
@@ -33,7 +36,7 @@ const ChatTodoApp = React.forwardRef((props, ref) => {
       `${randomNickname}가 입장했습니다. (${koreanTime})`
     ]);
 
-    socketRef.current = new WebSocket('ws://localhost:8080');
+    socketRef.current = new WebSocket(socketUrl);
 
     socketRef.current.onopen = () => {
       console.log('WebSocket 연결이 열렸습니다.');

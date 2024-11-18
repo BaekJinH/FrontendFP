@@ -79,6 +79,9 @@
           position: relative;
           color:#111;
 
+          & ~ li {
+            margin-top:10px;
+          }
           > p{
             
             &.completed{
