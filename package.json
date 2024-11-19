@@ -30,7 +30,8 @@
     "start-server": "node server/server.js",
     "build": "webpack",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d dist"
   },
   "eslintConfig": {
     "extends": [
@@ -66,6 +67,7 @@
     "sass": "^1.79.3",
     "sass-loader": "^16.0.2",
     "style-loader": "^4.0.0",
+    "vercel": "^39.0.4",
     "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0"

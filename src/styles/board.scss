@@ -60,6 +60,15 @@
           font-weight: 600;
         }
       }
+      > input {
+        flex:1;
+        max-width: calc(100% - 140px);
+      }
+      > button {
+        padding:10px 20px;
+        border-radius: 5px;
+        font-weight: 600;
+      }
     }
   }
   .pagination {
