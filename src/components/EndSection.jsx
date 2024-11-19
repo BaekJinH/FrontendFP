@@ -142,7 +142,7 @@ function EndSection() {
     <section className="end-page" ref={endSectionRef} id='EndSection'>
       <ul className="person-info">
         <li className="endpage-navi">
-          <div className="circle-nav">
+          {/* <div className="circle-nav">
             {['첫 페이지', '소개 페이지', '코드 페이지', '퍼블리셔 작업'].map((sectionId, index) => (
               <a
                 key={sectionId}
@@ -157,16 +157,12 @@ function EndSection() {
                   {sectionId.replace('#', '')}
                   <div className="outer-circle">
                     <svg width="100%" height="100%" viewBox="0 0 100 100">
-                      {/* <circle cx="50" cy="50" r="20" fill="#fff" />
-                      <text x="50" y="55" textAnchor="middle" fill="#000" fontSize="10" fontWeight="bold">
-                        {sectionNames[index]}
-                      </text> */}
                     </svg>
                   </div>
                 </div>
               </a>
             ))}
-          </div>
+          </div> */}
         </li>
       </ul>
       <div className="end-messages">
