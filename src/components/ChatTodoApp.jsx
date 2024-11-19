@@ -11,9 +11,10 @@ const ChatTodoApp = React.forwardRef((props, ref) => {
   const [newTodo, setNewTodo] = useState('');
   const [nickname, setNickname] = useState('');
   const socketRef = useRef(null);
-  const socketUrl = process.env.NODE_ENV === 'production'
-  ? 'wss://baekjinh.github.io/FrontendFP:8080'
-  : 'ws://localhost:8080';
+  const isVercel = window.location.hostname.includes('vercel');
+  const socketUrl = isVercel 
+    ? process.env.REACT_APP_API_URL_VERCEL.replace('http', 'ws')
+    : process.env.REACT_APP_API_URL_GITHUB.replace('http', 'ws');
 
   useEffect(() => {
     const randomNickname = `User${Math.floor(Math.random() * 1000)}`;

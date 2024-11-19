@@ -12,6 +12,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "find-cache-dir": "^5.0.0",
+    "firebase-admin": "^13.0.0",
     "fs": "^0.0.1-security",
     "gsap": "^3.12.5",
     "jquery": "^3.7.1",
