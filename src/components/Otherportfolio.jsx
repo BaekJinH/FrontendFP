@@ -69,6 +69,8 @@ function OtherSection() {
     return () => clearInterval(typingTimeout); // cleanup
   }, [hoveredTextIndex, lis]);
 
+  const isMobile = window.innerWidth <= 1024;
+
   return (
     <section className="publish_react-section" id='Otherportfolio'>
       <section className="section-inner">
@@ -98,11 +100,11 @@ function OtherSection() {
               <li
                 key={index}
                 onClick={() => handleSelect(index)}
-                onMouseEnter={() => setHoveredTextIndex(index)}
-                onMouseLeave={() => {
+                onMouseEnter={!isMobile ? () => setHoveredTextIndex(index) : null}
+                onMouseLeave={!isMobile ? () => {
                   setHoveredTextIndex(null);
                   setTypedText(''); // 타이핑 초기화
-                }}
+                } : null}
                 className={index === activeIndex ? 'active' : ''}
               >
                 <a href="#none">
